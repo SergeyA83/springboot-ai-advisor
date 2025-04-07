@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: advisor
+  ai:
+    ollama:
+      init:
+        pull-model-strategy: when_missing
+      chat:
+        options:
+          model: llama3.2
+      embedding:
+        options:
+          model: nomic-embed-text
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        index-type: HNSW
+  datasource:
+    url: jdbc:postgresql://localhost:5434/vectordb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
